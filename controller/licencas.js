@@ -39,11 +39,11 @@ const licencaController = {
     update: async (req, res) => {
         try {
 
-            const {title, content} = req.body
+            const {LICENCAS, ORGAO_AMBIENTAL, EMISSAO, VALIDADE, EMPRESA} = req.body
             const { id } = req.params
             
             const sql = "UPDATE LICENCAS SET NUMERO = ?, ORGAO_AMBIENTAL = ?, EMISSAO = ?, VALIDADE = ?, EMPRESA = ? WHERE ID = ?;"
-            const [rows, fiels] = await pool.query(sql, [title, content, id])
+            const [rows, fiels] = await pool.query(sql, [LICENCAS, ORGAO_AMBIENTAL, EMISSAO, VALIDADE, EMPRESA, id])
 
             res.json({
                 data : rows
